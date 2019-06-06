@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController
 {
-    lazy var game = Concentration(numberOfPairsOfCards: cardButtons.count + 1 / 2)
+    lazy var game = Concentration(numberOfPairsOfCards: (cardButtons.count + 1) / 2)
     
     @IBOutlet weak var flipCountLabel: UILabel!
     
@@ -19,7 +19,7 @@ class ViewController: UIViewController
     @IBOutlet weak var scoreLabel: UILabel!
     
     @IBAction func touchNewGame(_ sender: UIButton) {
-        game = Concentration(numberOfPairsOfCards: cardButtons.count + 1 / 2)
+        game = Concentration(numberOfPairsOfCards: (cardButtons.count + 1) / 2)
         randomIndex = Int(arc4random_uniform(uint(themes.count)))
         emojiChoices = themes[randomIndex]
         updateViewFromModel()
