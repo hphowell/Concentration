@@ -18,12 +18,6 @@ class ConcentrationViewController: UIViewController
     
     @IBOutlet weak var scoreLabel: UILabel!
     
-    @IBAction func touchNewGame(_ sender: UIButton) {
-        game = Concentration(numberOfPairsOfCards: (cardButtons.count + 1) / 2)
-        randomIndex = Int(arc4random_uniform(uint(themes.count)))
-        emojiChoices = themes[randomIndex]
-        updateViewFromModel()
-    }
     
     @IBAction func touchCard(_ sender: UIButton) {
         if let cardNumber = cardButtons.firstIndex(of: sender) {
@@ -49,17 +43,8 @@ class ConcentrationViewController: UIViewController
             }
         }
     }
-    
-    var halloweenTheme = ["👻", "🎃", "🦇", "😱", "🙀", "😈", "🍭", "🍬", "🍎"]
-    var animalTheme = ["🐼"]
-    var sportsTheme = ["🏀"]
-    var facesTheme = ["😀"]
-    var flagsTheme = ["🇺🇸"]
-    var foodTheme = ["🍕"]
-    lazy var themes = [halloweenTheme, animalTheme, sportsTheme, facesTheme, flagsTheme, foodTheme]
-    
-    lazy var randomIndex = Int(arc4random_uniform(uint(themes.count)))
-    lazy var emojiChoices = themes[randomIndex]
+
+    lazy var emojiChoices = ["👻", "🎃", "🦇", "😱", "🙀", "😈", "🍭", "🍬", "🍎"]
     
     var emoji = [Int: String]()
     
